@@ -33,6 +33,14 @@ app.get('/api/persons/', (request, response) => {
 app.get('/api/info', (request, response) => {
     response.send(`Phonebook has info for ${persons.length} peoples <p></p> ${aujourdhui}`)
 })
+//We are going to create a route that display information for a single person
+
+app.get('/api/persons/:id', (request, response) => {
+    const id = Number(request.params.id)
+    const person = persons.find(person => person.id === id)
+    response.json(person)
+
+})
 
 
 
