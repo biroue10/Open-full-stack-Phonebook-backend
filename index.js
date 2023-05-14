@@ -44,11 +44,13 @@ app.get('/api/persons/:id', (request, response) => {
     else {
         response.status(404).end()
     }
-
-
 })
-
-
+//We are going to Implement functionality that makes it possible to delete a single phonebook entry by making an HTTP DELETE request to the unique URL of that phonebook entry.
+app.delete('/api/persons/:id', (request, response) => {
+    const id = Number(request.params.id)
+    persons = persons.filter(note => note.id !== id)
+    response.status(204).end()
+})
 
 
 
