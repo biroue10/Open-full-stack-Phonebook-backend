@@ -1,9 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/node,coffeescript
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,coffeescript
 
-### CoffeeScript ###
-*.js
-
 ### Node ###
 # Logs
 logs
