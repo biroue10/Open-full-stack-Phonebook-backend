@@ -22,10 +22,45 @@ let persons = [
         "number": "39-23-6423122"
     }
 ]
+let aujourdhui = new Date()
 //We are going to create route that display our persons variable on the browser
 app.get('/api/persons/', (request, response) => {
     response.json(persons)
 })
+
+//We are going to create another route that return the number of the element in our persons array and the time
+//where the request has been made
+app.get('/api/info', (request, response) => {
+    response.send(`Phonebook has info for ${persons.length} peoples <p></p> ${aujourdhui}`)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const PORT = 3002
 app.listen(PORT, () => {
     console.log(`Your application is listening on port ${PORT}`)
