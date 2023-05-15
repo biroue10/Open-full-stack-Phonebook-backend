@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+app.use(express.json())
 let persons = [
     {
         "id": 1,
@@ -27,14 +28,12 @@ let aujourdhui = new Date()
 app.get('/api/persons/', (request, response) => {
     response.json(persons)
 })
-
 //We are going to create another route that return the number of the element in our persons array and the time
 //where the request has been made
 app.get('/api/info', (request, response) => {
     response.send(`Phonebook has info for ${persons.length} peoples <p></p> ${aujourdhui}`)
 })
 //We are going to create a route that display information for a single person
-
 app.get('/api/persons/:id', (request, response) => {
     const id = Number(request.params.id)
     const person = persons.find(person => person.id === id)
@@ -52,11 +51,17 @@ app.delete('/api/persons/:id', (request, response) => {
     response.status(204).end()
 })
 
-
-
-
-
-
+//We are going to expand the backend so that new phonebook entries can be added by making HTTP POST requests to the address http://localhost:3001/api/persons.
+app.post('/api/persons', (request, response) => {
+    const body = request.body
+    const person = {
+        id: Math.floor(Math.random(100) * 100),
+        name: body.name,
+        number: body.number,
+    }
+    persons = persons.concat(person),
+        response.json(person)
+})
 
 
 
