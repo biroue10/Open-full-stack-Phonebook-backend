@@ -79,25 +79,6 @@ app.post('/api/persons', (request, response) => {
 
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const PORT = 3002
 app.listen(PORT, () => {
     console.log(`Your application is listening on port ${PORT}`)
