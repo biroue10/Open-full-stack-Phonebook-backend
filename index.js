@@ -37,7 +37,6 @@ app.delete('/api/persons/:id', (request, response) => {
     persons = persons.filter(note => note.id !== id)
     response.status(204).end()
 })
-
 //We are going to expand the backend so that new phonebook entries can be added by making HTTP POST requests to the address http://localhost:3001/api/persons.
 app.post('/api/persons', (request, response) => {
     const body = request.body
